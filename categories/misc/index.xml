@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Pierre Ouannes</title>
-    <link>https://pouannes.github.io/blog/</link>
-    <description>Recent content in Blogs on Pierre Ouannes</description>
+    <title>Misc on Pierre Ouannes</title>
+    <link>https://pouannes.github.io/categories/misc/</link>
+    <description>Recent content in Misc on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Jan 2019 02:14:36 +0100</lastBuildDate>
     
-	<atom:link href="https://pouannes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pouannes.github.io/categories/misc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>https://pouannes.github.io/blog/setting-up-a-first-personal-website/</guid>
       <description>Here I&amp;rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on github pages. The whole process wasn&amp;rsquo;t as easy as I thought it would be so hopefully this will help someone else down the line.
 The assumptions I&amp;rsquo;ll make :  You are reasonnably familiar with the command line ; You are reasonnably familiar with Git and GitHub ; You are reasonnably familiar with the web languages : HTML and CSS.</description>
-    </item>
-    
-    <item>
-      <title>Roadmap to ML</title>
-      <link>https://pouannes.github.io/blog/roadmap-to-ml/</link>
-      <pubDate>Sun, 18 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://pouannes.github.io/blog/roadmap-to-ml/</guid>
-      <description>This is my roadmap to go from an undergraduate CS and math background to a very good understanding of Machine Learning and Deep Learning concepts, and more importantly to successfully apply ML and DL. I will put here everything I&amp;rsquo;ve done, I&amp;rsquo;m doing, and I&amp;rsquo;m planning on doing in order to reach that goal. What I&amp;rsquo;ve already completed will be in italic, and what I&amp;rsquo;m currently doing in bold.
-Courses :</description>
     </item>
     
   </channel>
