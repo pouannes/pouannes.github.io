@@ -17,8 +17,8 @@
       <pubDate>Sat, 19 Jan 2019 02:14:36 +0100</pubDate>
       
       <guid>https://pouannes.github.io/blog/setting-up-a-first-personal-website/</guid>
-      <description>Here I&amp;rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on github pages. The whole process wasn&amp;rsquo;t as easy as I thought it would be so hopefully this will help someone else down the line.
-The assumptions I&amp;rsquo;ll make :  You are reasonnably familiar with the command line ; You are reasonnably familiar with Git and GitHub ; You are reasonnably familiar with the web languages : HTML and CSS.</description>
+      <description>Having a personal website is very useful, for many reasons. However, building one is sometimes a bit difficult. Of course there&amp;rsquo;s WordPress, but it can feel a bit heavy, and too abstract for someone who likes to code. On the other hand, Web Development is not easy and can be time consuming.
+Here I&amp;rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on GitHub Pages.</description>
     </item>
     
     <item>
@@ -27,7 +27,9 @@ The assumptions I&amp;rsquo;ll make :  You are reasonnably familiar with the com
       <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://pouannes.github.io/blog/roadmap-to-ml/</guid>
-      <description>This is my roadmap to go from an undergraduate CS and math background to a very good understanding of Machine Learning and Deep Learning concepts, and more importantly to successfully apply ML and DL. I will put here everything I&amp;rsquo;ve done, I&amp;rsquo;m doing, and I&amp;rsquo;m planning on doing in order to reach that goal. What I&amp;rsquo;ve already completed will be in italic, what I&amp;rsquo;m currently doing in bold and the rest is what I&amp;rsquo;m planning on doing next.</description>
+      <description>This is my roadmap to go from an undergraduate CS and math background to a very good understanding of Machine Learning and Deep Learning concepts, and more importantly to successfully apply ML and DL. I will put here everything I&amp;rsquo;ve done (in italic), I&amp;rsquo;m doing (in bold), and I&amp;rsquo;m planning on doing (normal text) in order to reach that goal.
+Courses :
+ Andrew Ng&amp;rsquo;s Coursera Machine Learning course fast.ai course part 1 v3 Udacity Intro to deep learning with PyTorch fast.</description>
     </item>
     
     <item>
@@ -37,8 +39,8 @@ The assumptions I&amp;rsquo;ll make :  You are reasonnably familiar with the com
       
       <guid>https://pouannes.github.io/about/</guid>
       <description>Hello there !
-I&amp;rsquo;m a CS student who discovered Machine Learning in 2018. I&amp;rsquo;ve been working hard to learn it since then. I&amp;rsquo;m especially interested in Deep Learning.
-I’m also a strong believer in self-learning. So in addition to my French engineering school, I take MOOCs and build things to learn and practice. For example, I’ve attended version 3 of the fast.ai course live from October to December - a rather tough planning for me because the classes were beginning at 3 a.</description>
+I&amp;rsquo;m a CS student who discovered Machine Learning in 2018 and who has been working hard to learn it since then. I&amp;rsquo;m especially interested in Deep Learning.
+I’m a strong believer in self-learning. So in addition to my French engineering school, I take MOOCs and build things to learn and practice. For example, I attended version 3 of the fast.ai course live from October to December — a rather tough planning for me because the classes were beginning at 3 a.</description>
     </item>
     
   </channel>

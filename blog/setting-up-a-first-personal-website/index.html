@@ -24,12 +24,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting Up a First Personal Website"/>
-<meta name="twitter:description" content="Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on github pages. The whole process wasn&rsquo;t as easy as I thought it would be so hopefully this will help someone else down the line.
-The assumptions I&rsquo;ll make :  You are reasonnably familiar with the command line ; You are reasonnably familiar with Git and GitHub ; You are reasonnably familiar with the web languages : HTML and CSS."/>
+<meta name="twitter:description" content="Having a personal website is very useful, for many reasons. However, building one is sometimes a bit difficult. Of course there&rsquo;s WordPress, but it can feel a bit heavy, and too abstract for someone who likes to code. On the other hand, Web Development is not easy and can be time consuming.
+Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on GitHub Pages."/>
 
 <meta property="og:title" content="Setting Up a First Personal Website" />
-<meta property="og:description" content="Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on github pages. The whole process wasn&rsquo;t as easy as I thought it would be so hopefully this will help someone else down the line.
-The assumptions I&rsquo;ll make :  You are reasonnably familiar with the command line ; You are reasonnably familiar with Git and GitHub ; You are reasonnably familiar with the web languages : HTML and CSS." />
+<meta property="og:description" content="Having a personal website is very useful, for many reasons. However, building one is sometimes a bit difficult. Of course there&rsquo;s WordPress, but it can feel a bit heavy, and too abstract for someone who likes to code. On the other hand, Web Development is not easy and can be time consuming.
+Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on GitHub Pages." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pouannes.github.io/blog/setting-up-a-first-personal-website/" /><meta property="article:published_time" content="2019-01-19T02:14:36&#43;01:00"/>
 <meta property="article:modified_time" content="2019-01-19T00:00:00&#43;00:00"/><meta property="og:site_name" content="Title" />
@@ -185,6 +185,18 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
            <i class="fas fa-tags"></i>
           
           <a class="badge badge-tag" href="/tags/webdev">webdev</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/hugo">hugo</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/personal">personal</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/website">website</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/tutorial">tutorial</a>
           
       
     
@@ -202,136 +214,157 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     
 
-<p>Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on github pages.
-The whole process wasn&rsquo;t as easy as I thought it would be so hopefully this will help someone else down the line.</p>
+<p>Having a personal website is very useful, for many reasons. However, building one is sometimes a bit difficult. Of course there&rsquo;s WordPress, but it can feel a bit heavy, and too abstract for someone who likes to code. On the other hand, Web Development is not easy and can be time consuming.</p>
 
-<h2 id="the-assumptions-i-ll-make">The assumptions I&rsquo;ll make :</h2>
+<p>Here I&rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on GitHub Pages.
+The whole process wasn&rsquo;t as easy as I thought it would be (mainly because of the lack of tutorials), so hopefully this will help someone else down the line.</p>
+
+<h2 id="the-assumptions-i-ll-make">The assumptions I&rsquo;ll make</h2>
 
 <ol>
-<li>You are reasonnably familiar with the command line ;</li>
-<li>You are reasonnably familiar with Git and GitHub ;</li>
-<li>You are reasonnably familiar with the web languages : HTML and CSS.</li>
+<li>You are reasonnably familiar with the command line;</li>
+<li>You are reasonnably familiar with Git and GitHub;</li>
+<li>You are reasonnably familiar with the web languages HTML and CSS.</li>
 </ol>
 
-<p>If you don&rsquo;t fell comfortable enough with any of those there&rsquo;s plenty of great tutorial out there. For example you can head over to <a href="https://codeacademy.com">codeacademy</a> and then come back here.</p>
+<p>If you don&rsquo;t feel comfortable enough with any of those topics there&rsquo;s plenty of great tutorials out there. For example you can head over to <a href="https://codeacademy.com">codeacademy</a> and then come back here.</p>
 
 <h2 id="what-are-we-using-to-make-our-website">What are we using to make our website</h2>
 
-<p>GitHub provide a very helpful and free service know as GitHub Pages. It offers users to host any static website for free.
-There&rsquo;s plenty of different tools to create static websites. We&rsquo;ll be using <strong><a href="https://gohugo.io/">Hugo</a></strong> in this tutorial but the process is very similar with the other tools. You can find a list <a href="https://www.staticgen.com/">here</a>.
-The proccess is a bit easier with Jekyll because it&rsquo;s already integrated into GitHub pages, but I didn&rsquo;t find any theme I liked so here we are.</p>
+<p>GitHub provides a very helpful and free service known as GitHub Pages. It offers users to host any static website for free.
+There&rsquo;s plenty of different tools to create static websites. We&rsquo;ll be using <strong><a href="https://goHugo.io/">Hugo</a></strong> in this tutorial but the process is very similar with the other tools. You can find a list <a href="https://www.staticgen.com/">here</a>.
+The proccess is a bit easier with Jekyll because it&rsquo;s already integrated into GitHub Pages, but I didn&rsquo;t find any theme I liked so here we are.</p>
 
 <h3 id="1-getting-the-website-up-and-running-locally-using-hugo">1. Getting the website up and running locally using Hugo</h3>
 
 <ol>
-<li><p>Install Hugo. On MacOs this can be done with</p>
+<li><p>Install Hugo. On MacOS this can be done with</p>
 
-<p><pre><code class="bash">brew install hugo</pre></code> For other OS and other ways of installing hugo see <a href="https://gohugo.io/getting-started/installing">hugo&rsquo;s documentation</a>.</p>
+<pre><code class="language-bash">brew install hugo
+</code></pre>
 
-<p>You can verify your install with <pre><code class="bash">hugo version</pre></code></p></li>
+<p>For other OSs and other ways of installing Hugo see <a href="https://goHugo.io/getting-started/installing">Hugo&rsquo;s documentation</a>.</p>
 
-<li><p>Create a new site with :</p>
+<p>You can verify your install with</p>
 
-<p><pre><code class="bash">hugo new site &lt;YOUR-WEBSITE-NAME&gt; </pre></code></p>
+<pre><code class="language-bash">hugo version
+</code></pre></li>
 
-<p>It&rsquo;s that simple !</p></li>
+<li><p>Create a new site with</p>
 
-<li><p>Move to the repository you&rsquo;ve just created :</p>
+<pre><code class="language-bash">hugo new site &lt;YOUR-WEBSITE-NAME&gt;
+</code></pre>
 
-<p><pre><code class="bash">cd &lt;YOUR-WEBSITE-NAME&gt;</pre></code></p>
+<p>It&rsquo;s that simple!</p></li>
 
-<p>You can now download a theme you like. You can browse hugo&rsquo;s themes on <a href="https://themes.gohugo.io/">this link</a>. Once you&rsquo;ve choosen a theme, do a git clone in the <code>themes</code> directory. For example with hyde-hyde, the theme used on this website :</p>
+<li><p>Move to the repository you&rsquo;ve just created</p>
 
-<p><pre><code class="bash">git init
-git clone <a href="https://github.com/htr3n/hyde-hyde.git">https://github.com/htr3n/hyde-hyde.git</a> themes/hyde-hyde</pre></code></p>
+<pre><code class="language-bash">cd &lt;YOUR-WEBSITE-NAME&gt;
+</code></pre>
 
-<p>and add the name of the theme to the <code>config.toml</code> file of the theme. You can directly edit the file with a text editor or enter into the CLI (for hyde-hyde):</p>
+<p>You can now download a theme you like. You can browse Hugo&rsquo;s themes on <a href="https://themes.goHugo.io/">this link</a>. Once you&rsquo;ve choosen a theme, do a git clone in the <code>themes</code> directory. For example with the hyde-hyde theme used on this website it&rsquo;s done via</p>
 
-<p><pre><code class="bash">echo &lsquo;theme = &ldquo;hyde-hyde&rdquo;&rsquo; &gt;&gt; config.toml</pre></code></p></li>
+<pre><code class="language-bash">git init
+git clone https://github.com/htr3n/hyde-hyde.git themes/hyde-hyde
+</code></pre>
 
-<li><p>You can now customize your website. To start a local server that rebuilds everytime you change the file of your website, type</p>
+<p>Then, add the name of the theme to the <code>config.toml</code> file of the theme. You can directly edit the file with a text editor or enter in the CLI (for hyde-hyde)</p>
 
-<p><pre><code class="bash">hugo server -D</pre></code></p>
+<pre><code class="language-bash">echo 'theme = &quot;hyde-hyde&quot;' &gt;&gt; config.toml
+</code></pre></li>
 
-<p>The -D option makes the drafts visible.</p>
+<li><p>You can now customize your website. To start a local server that rebuilds everytime you change the file of your website, use</p>
 
-<p>To add new content you can simply type</p>
+<pre><code class="language-bash">hugo server -D
+</code></pre>
 
-<p><pre><code class="bash">hugo new posts/&lt;NAME-OF-YOUR-POST&gt; </pre></code></p></li>
+<p>The <code>-D</code> option makes the drafts visible. To add new content you can simply type</p>
+
+<pre><code class="language-bash">hugo new posts/&lt;NAME-OF-YOUR-POST&gt;
+</code></pre></li>
 </ol>
 
-<p>Once you&rsquo;re happy with the website you&rsquo;ve built locally, it&rsquo;s time to deploy it on GitHub Pages !</p>
+<p>Once you&rsquo;re happy with the website you&rsquo;ve built locally, it&rsquo;s time to deploy it on GitHub Pages!</p>
 
 <h3 id="2-deploy-the-website-on-github-pages">2. Deploy the website on GitHub Pages</h3>
 
 <ol>
-<li><p>You&rsquo;ll have to create two repositories : one for storing the hugo files, and another for storing your actual website. <strong>Careful</strong>, the repository for storing your actual website must be of the format <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code>. For example for me it&rsquo;s <code>pouannes.github.io</code></p></li>
+<li><p>You&rsquo;ll have to create two repositories: one for storing the Hugo files, and another for storing your actual website. <strong>Careful</strong>, the repository for storing your actual website must be of the format <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code>. For example for me it&rsquo;s <code>pouannes.github.io</code></p></li>
 
-<li><p>Add the github remote origin to your local repo containing the hugo website and push your files. For example with :</p>
+<li><p>Add the github remote origin to your local repo containing the Hugo website and push your files. For example with</p>
 
-<p><pre><code class="bash">git remote add origin &lt;GITHUB-REPO-URL&gt;
-git push -u origin master</pre></code></p></li>
+<pre><code class="language-bash">git remote add origin &lt;GITHUB-REPO-URL&gt; 
+git push -u origin master
+</code></pre></li>
 
-<li><p>You can then build the hugo website simply by typing</p>
+<li><p>You can then build the Hugo website simply by typing</p>
 
-<p><pre><code>hugo</pre></code></p>
+<pre><code class="language-bash">hugo
+</code></pre>
 
-<p>This will create a <code>build</code> directory that contains your website. You don&rsquo;t want git to track that directory with the rest of the files here so add it to <code>.gitignore</code>, for example with :</p>
+<p>This will create a <code>build</code> directory which contains your website. You don&rsquo;t want git to track that directory with the rest of the files here, so add it to <code>.gitignore</code>, for example with</p>
 
-<p><pre><code class="bash">echo &ldquo;build&rdquo; &gt;&gt; .gitignore</pre></code></p></li>
+<pre><code class="language-bash">echo &quot;build&quot; &gt;&gt; .gitignore
+</code></pre></li>
 
 <li><p>Head to your public directory</p>
 
-<p><pre><code class="bash">cd public</pre></code></p>
+<pre><code class="language-bash">cd public
+</code></pre>
 
-<p>And set your <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code> repo as the remote :</p>
+<p>And set your <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code> repo as the remote</p>
 
-<p><pre><code class="bash">git init
+<pre><code class="language-bash">git init
 git remote add origin &lt;GITHUBUSERNAME.GITHUB.IO-REPO-URL&gt;
-git push -u origin master</pre></code></p></li>
+git push -u origin master
+</code></pre></li>
 
-<li><p>You can then head to the settings of the <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code> repo and it should look something like this :
+<li><p>You can then head to the settings of the <code>&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code> repo and it should look something like this
 <figure>
     <img src="/img/personal_website.png"/> 
 </figure>
 </p></li>
 </ol>
 
-<p>Congrats, GitHub Pages is now serving your website at</p>
-
-<p><code>https://&lt;YOUR-GITHUB-USERNAME&gt;.github.io</code> !</p>
+<p>Congrats, GitHub Pages is now serving your website!</p>
 
 <h3 id="3-automating-future-changes-to-your-website">3. Automating future changes to your website</h3>
 
-<p>To recap, making change to your website locally involves testing the changes using <code>hugo server -D</code>, and then pushing the modifications to github (from the root of the website).
-Making change to how your site looks involves building the site with the command <code>hugo</code> and then pushing the changes from the <code>/public</code> directory.
-Here&rsquo;s a little script to automatically commit and push the changes in your website, build the website, and commit and push the website. The script also asks you for the commit message for both pushes.</p>
+<p>To recap, making local changes to your website involves testing the changes using <code>hugo server -D</code>, and then pushing the modifications to GitHub (from the root of the website).</p>
 
-<p><pre><code class="bash">#!/bin/bash
+<p>Making changes to the public version of your site involves building the site with the command <code>hugo</code>, and then pushing the changes from the <code>/public</code> directory to GitHub Pages.</p>
+
+<p>Here&rsquo;s a little script to automatically do all that. The script also asks you for the commit message for both pushes.</p>
+
+<pre><code class="language-bash">#!/bin/bash
 git add .
-echo &ldquo;Enter commit message: &ldquo;
+echo &quot;Enter commit message: &quot;
 read commitMessage
-git commit -m &ldquo;$commitMessage&rdquo;
+git commit -m &quot;$commitMessage&quot;
 git push
 hugo
 cd public
 git add .
-git commit -m &ldquo;$commitMessage&rdquo;
-git push </pre></code></p>
+git commit -m &quot;$commitMessage&quot;
+git push
+</code></pre>
 
 <p>Put that script in a file like <code>build.sh</code> in the root of your project. You can make it executable with</p>
 
-<p><pre><code class="bash">chmod +x build.sh</pre></code></p>
+<pre><code class="language-bash">chmod +x build.sh
+</code></pre>
 
 <p>and then execute it with</p>
 
-<p><pre><code class="bash">./build</pre></code></p>
+<pre><code class="language-bash">./build
+</code></pre>
 
 <p>You can also execute it simply with</p>
 
-<p><pre><code class="bash">sh build.sh</pre></code></p>
+<pre><code class="language-bash">sh build.sh
+</code></pre>
 
-<p>Voila, I hope it can help you and don&rsquo;t hesitate to reach out to me on social media if you have any questions !</p>
+<p>Voilà, I hope it helped you. Feel to reach out on social media if you have any questions!</p>
 
   </div>
   

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Pierre Ouannes</title>
-    <link>https://pouannes.github.io/blog/</link>
-    <description>Recent content in Blogs on Pierre Ouannes</description>
+    <title>Tutorial on Pierre Ouannes</title>
+    <link>https://pouannes.github.io/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Jan 2019 02:14:36 +0100</lastBuildDate>
     
-	<atom:link href="https://pouannes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pouannes.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,17 +19,6 @@
       <guid>https://pouannes.github.io/blog/setting-up-a-first-personal-website/</guid>
       <description>Having a personal website is very useful, for many reasons. However, building one is sometimes a bit difficult. Of course there&amp;rsquo;s WordPress, but it can feel a bit heavy, and too abstract for someone who likes to code. On the other hand, Web Development is not easy and can be time consuming.
 Here I&amp;rsquo;ll describe how I went about making my personal website (this one) and how I deployed it on GitHub Pages.</description>
-    </item>
-    
-    <item>
-      <title>Roadmap to ML</title>
-      <link>https://pouannes.github.io/blog/roadmap-to-ml/</link>
-      <pubDate>Wed, 21 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://pouannes.github.io/blog/roadmap-to-ml/</guid>
-      <description>This is my roadmap to go from an undergraduate CS and math background to a very good understanding of Machine Learning and Deep Learning concepts, and more importantly to successfully apply ML and DL. I will put here everything I&amp;rsquo;ve done (in italic), I&amp;rsquo;m doing (in bold), and I&amp;rsquo;m planning on doing (normal text) in order to reach that goal.
-Courses :
- Andrew Ng&amp;rsquo;s Coursera Machine Learning course fast.ai course part 1 v3 Udacity Intro to deep learning with PyTorch fast.</description>
     </item>
     
   </channel>
