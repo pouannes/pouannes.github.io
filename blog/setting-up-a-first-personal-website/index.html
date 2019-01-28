@@ -46,10 +46,15 @@ Here I&rsquo;ll describe how I went about making my personal website (this one) 
 
 
 
-<link rel="stylesheet" href="/scss/hyde-hyde.ed6e05a7bd0ba475ce9175c57d742c18a0a24555870faa3ea7a322a91d3c006e.css" integrity="sha256-7W4Fp70LpHXOkXXFfXQsGKCiRVWHD6o&#43;p6MiqR08AG4=">
+<link rel="stylesheet" href="/scss/hyde-hyde.e7a7b45cbfaab21883d805eb0de7152fbff595f9e21a9813a5991addda5cea3e.css" integrity="sha256-56e0XL&#43;qshiD2AXrDecVL7/1lfniGpgTpZka3dpc6j4=">
 
 
 <link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
+
+
+
+
+<link rel="stylesheet" href="/scss/tocbot.51e1ec283fbfba143803cf9b8af1b615adc81bb90cee129a1a771719e5a60d83.css" integrity="sha256-UeHsKD&#43;/uhQ4A8&#43;bivG2Fa3IG7kM7hKaGncXGeWmDYM=">
 
 
 
@@ -75,13 +80,13 @@ Here I&rsquo;ll describe how I went about making my personal website (this one) 
         <a href="https://pouannes.github.io">Pierre Ouannes</a>
       </span>
       
-        
-        
-        
-        <div class="author-image">
-          <img src="https://pouannes.github.io/img/profil.png" alt="Author Image" class="img--circle img--headshot element--center">
-        </div>
-        
+      
+      
+      
+      <div class="author-image">
+        <img src="https://pouannes.github.io/img/profil.png" alt="Author Image" class="img--circle img--headshot element--center">
+      </div>
+      
       
       
       <p class="site__description">
@@ -142,17 +147,17 @@ Here I&rsquo;ll describe how I went about making my personal website (this one) 
 </section>
 
       </div>
-    </div>
-    
+      
 
 <div class="builtwith">
 Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.com/htr3n/hyde-hyde">hyde-hyde</a>.
 </div>
 
 
+    </div>
   </div>
-</div>
 
+</div>
         <div class="content container">
             
     <article>
@@ -210,6 +215,14 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 
   </header>
   
+  
+  <div class="toc-wrapper">
+    <input type="checkbox" id="tocToggle">
+    <label for="tocToggle">Table of Content</label>
+    
+      <div class="toc" id="TableOfContents"></div>
+    
+  </div>
   
   <div class="post">
     
@@ -420,6 +433,23 @@ if (!doNotTrack) {
     </script>
     
 
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.js"></script>
+<script type="text/javascript">
+  if (tocbot) {
+    tocbot.init({
+      
+      tocSelector: '.toc',
+      
+      contentSelector: '.post',
+      
+      headingSelector: 'h2, h3, h4',
+      collapseDepth: 4
+    });
+  }
+</script>
 
 
 
