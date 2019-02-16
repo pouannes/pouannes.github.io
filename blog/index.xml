@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Jan 2019 02:14:36 +0100</lastBuildDate>
+    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pouannes.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understanding precision and recall</title>
+      <link>https://pouannes.github.io/blog/precision-recall/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pouannes.github.io/blog/precision-recall/</guid>
+      <description>Precision, recall, and the derived concepts are very important in Machine Learning yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
+What&amp;rsquo;s the point ? First off, it&amp;rsquo;s important to understand why those concepts were introduced and why they are useful.
+Say you have a classifier that goes through medical data and tries to determine of someone has cancer or not.</description>
+    </item>
     
     <item>
       <title>Setting Up a First Personal Website</title>
