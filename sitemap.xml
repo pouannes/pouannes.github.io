@@ -40,19 +40,7 @@
   </url>
   
   <url>
-    <loc>https://pouannes.github.io/categories/deep-learning/</loc>
-    <lastmod>2018-11-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://pouannes.github.io/tags/hugo/</loc>
-    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://pouannes.github.io/categories/misc/</loc>
     <lastmod>2019-01-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -64,20 +52,8 @@
   </url>
   
   <url>
-    <loc>https://pouannes.github.io/categories/ml/</loc>
-    <lastmod>2018-11-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://pouannes.github.io/tags/mooc/</loc>
     <lastmod>2018-11-18T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://pouannes.github.io/tags/personal/</loc>
-    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -107,12 +83,6 @@
   
   <url>
     <loc>https://pouannes.github.io/tags/webdev/</loc>
-    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://pouannes.github.io/tags/website/</loc>
     <lastmod>2019-01-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
