@@ -6,7 +6,7 @@
     <description>Recent content in Tutorial on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pouannes.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Understanding precision and recall</title>
       <link>https://pouannes.github.io/blog/precision-recall/</link>
-      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://pouannes.github.io/blog/precision-recall/</guid>
       <description>Precision, recall and the derived concepts are very important in Machine Learning (and more generally in statistics) yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
