@@ -26,14 +26,12 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Understanding precision and recall"/>
-<meta name="twitter:description" content="Precision, recall, and the derived concepts are very important in Machine Learning yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
-What&rsquo;s the point ? First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful.
-Say you have a classifier that goes through medical data and tries to determine of someone has cancer or not."/>
+<meta name="twitter:description" content="Precision, recall and the derived concepts are very important in Machine Learning (and more generally in statistics) yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
+What&rsquo;s the point ? First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful. I am going to use an example throughout this post to make things clearer."/>
 
 <meta property="og:title" content="Understanding precision and recall" />
-<meta property="og:description" content="Precision, recall, and the derived concepts are very important in Machine Learning yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
-What&rsquo;s the point ? First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful.
-Say you have a classifier that goes through medical data and tries to determine of someone has cancer or not." />
+<meta property="og:description" content="Precision, recall and the derived concepts are very important in Machine Learning (and more generally in statistics) yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.
+What&rsquo;s the point ? First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful. I am going to use an example throughout this post to make things clearer." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pouannes.github.io/blog/precision-recall/" /><meta property="article:published_time" content="2019-02-16T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-16T00:00:00&#43;00:00"/><meta property="og:site_name" content="Title" />
@@ -50,7 +48,7 @@ Say you have a classifier that goes through medical data and tries to determine 
 
 
 
-<link rel="stylesheet" href="/scss/hyde-hyde.e7a7b45cbfaab21883d805eb0de7152fbff595f9e21a9813a5991addda5cea3e.css" integrity="sha256-56e0XL&#43;qshiD2AXrDecVL7/1lfniGpgTpZka3dpc6j4=">
+<link rel="stylesheet" href="/scss/hyde-hyde.5c4f27ed9f62935f79608fad11d176e9a76de34db6a53abedc4dc10ce751db55.css" integrity="sha256-XE8n7Z9ik195YI&#43;tEdF26adt4022pTq&#43;3E3BDOdR21U=">
 
 
 <link rel="stylesheet" href="/scss/print.2744dcbf8a0b2e74f8a50e4b34e5f441be7cf93cc7de27029121c6a09f9e77bc.css" integrity="sha256-J0Tcv4oLLnT4pQ5LNOX0Qb58&#43;TzH3icCkSHGoJ&#43;ed7w=" media="print">
@@ -187,6 +185,9 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
            
       
           <a class="badge badge-tag" href="/tags/tutorial">tutorial</a>
+           
+      
+          <a class="badge badge-tag" href="/tags/statistics">statistics</a>
           
       
     
@@ -214,29 +215,29 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     
 
-<p>Precision, recall, and the derived concepts are very important in Machine Learning yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.</p>
+<p>Precision, recall and the derived concepts are very important in Machine Learning (and more generally in statistics) yet can be hard to grasp. In this article I explain what they are, why they are useful and how to use them.</p>
 
 <h2 id="what-s-the-point">What&rsquo;s the point ?</h2>
 
-<p>First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful.</p>
+<p>First off, it&rsquo;s important to understand why those concepts were introduced and why they are useful. I am going to use an example throughout this post to make things clearer.</p>
 
-<p>Say you have a classifier that goes through medical data and tries to determine of someone has cancer or not. You&rsquo;ve trained this classifier, on you want to get a good picture of exactly how good this classifier is at telling if people have cancer. Of course you can look at accuracy, the number of well-classified examples over the total number of examples. But is accuracy telling the whole picture ? Well, consider those two examples.</p>
+<p>Say you have a classifier that goes through medical data and tries to figure out if someone has a particular disease or not. You&rsquo;ve trained this classifier, on you want to get a good picture of exactly how good this classifier is at telling if people have the disease. Of course you can look at accuracy, the number of well-classified examples over the total number of examples. But is accuracy telling the whole picture ? Well, consider those two examples.</p>
 
 <ul>
-<li><p>A classifier that if a person has cancer will always correctly diagnose cancer, but gets half of the healthy people wrong. You can see that announcing to a healthy person that he or she has cancer could be devastating.</p></li>
+<li><p>A classifier which, if a person has the disease, will always correctly diagnose it, but gets half of the healthy people wrong. You can see that announcing to a healthy person that he or she has the disease could lead to adverse consequences.</p></li>
 
 <li><p>A classifier that gets the diagnose right for every healthy person, but also miss half of the cancer cases. That wouldn&rsquo;t be a very good algorithm would it ?</p></li>
 </ul>
 
-<p>Depending of the distribution of sick to healthy patients those two classifiers could have high accuracy while not being considered very good. What&rsquo;s important is that if someone is sick the classifier gets it right, but also if a person is healthy.</p>
+<p>Depending on the distribution of sick to healthy patients those two classifiers could have high accuracy while not being considered very good. What&rsquo;s important is that if someone is sick the classifier gets it right, but also if a person is healthy.</p>
 
-<p>Last example to see why accuracy is not enough to understand the full picture. Let&rsquo;s say you screening a population for a sickness that occurs only 1 in a 1 000. Would a classifier that is 99.9% accurate seems good ? Well intuitively yes, but the classifier could just predict every person is healthy and get it right <sup>999</sup>&frasl;<sub>1000</sub> times, so it would be 99.9% accurate. Huh. Not good.</p>
+<p>Here&rsquo;s a last example to see why accuracy is not enough to understand the full picture. Let&rsquo;s say you are screening a population for a sickness that occurs only 1 in a 1 000 cases. Would a classifier that is 99.9% accurate seems good ? Well intuitively yes, but the classifier could just predict every person is healthy and get it right 999 out of 1000 times, so it would be 99.9% accurate. Huh. Not good.</p>
 
 <h2 id="precision-and-recall">Precision and Recall</h2>
 
-<p>In order to get a fuller picture of what&rsquo;s going on we need other ways to measure the performance of the classifier. To do that, let&rsquo;s understand the concepts of True Positive (TP), True Negative (TN), False Positive (TP), and False Negative (FN). In all of those, the first word refers to if the classifier got it right or not, and the second to the predicted value. For example a True Positive is when the classifier predicted a Positive and it was True. A False Negative is when an algorithm predicted a Negative but that prediction was False (it was in fact a Positive).</p>
+<p>In order to get a fuller picture of what&rsquo;s going on we need other ways to measure the performance of the classifier. To do that, let&rsquo;s understand the concepts of True Positive (TP), True Negative (TN), False Positive (TP), and False Negative (FN). In all of those, the first word refers to wether the classifier got it right or not, and the second to the predicted value. For example a True Positive is when the classifier predicted a Positive and it was True. A False Negative is when an algorithm predicted a Negative but that prediction was False (it was in fact a Positive).</p>
 
-<p>To say this differently, the False Something are the errors of the classifier, while the True Something are what it got right. Accordingly, there&rsquo;s a special names for the two types of errors a classifier can make : Type I error for the False Positive, and Type II error for the False Negative.</p>
+<p>To say this differently, the False Somethings are the errors of the classifier, while the True Somethings are what it got right. Accordingly, there&rsquo;s special names for the two types of errors a classifier can make : Type I error for the False Positive, and Type II error for the False Negative.</p>
 
 <p>This is summed up in the following table, called a confusion matrix.</p>
 
@@ -247,7 +248,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 
 <p>Please be sure to fully understand what those are before reading further. These concepts are essential yet can be a confusing at first.</p>
 
-<p>Let&rsquo;s see how to compute those values in code. Suppose we have patients ids, wether or not they have the disease, and the classifier prediction in a pandas DataFrame called <code>df</code>. The convention here is 1 to indicate the disease, 0 for no disease.</p>
+<p>Let&rsquo;s see how to compute those values in code. Suppose we have patients ids, wether or not they have the disease, and the classifier prediction stored in a pandas DataFrame called <code>df</code>. The convention here is 1 to indicate the disease, 0 for no disease.</p>
 
 <table border="1" class="dataframe">
   <thead>
@@ -392,11 +393,11 @@ df.loc[(df['disease'] == 0) &amp; (df['prediction'] == 1), 'confusion'] = 'FP'
   </tbody>
 </table>
 
-<p>Now let&rsquo;s see the definition of precision and recall. To simplify, the following will be based on a classifier that tries to detect diseases on patients.</p>
+<p>Now let&rsquo;s see the definition of precision and recall.</p>
 
 <h3 id="recall">Recall</h3>
 
-<p>Also called &lsquo;Sensitivity&rsquo;, recall is a measures of how well the classifier detects cases of people that do have the condition. In term of probabilities, in can be formulated as : &ldquo;the probability that a sick patient is detected by the classifier&rdquo;.</p>
+<p>Also called &lsquo;Sensitivity&rsquo;, recall is a measures of how well the classifier detects cases of people that do have the condition. In term of probabilities, in can be formulated as : &ldquo;<strong>the probability that a sick patient is detected by the classifier</strong>&rdquo;.</p>
 
 <p>$$\begin{align}
 recall &amp;= \frac{True\ Positives}{True\ Positives + False\ Negatives} \nonumber \\<br />
@@ -423,7 +424,7 @@ FP = df[df['confusion'] == 'FP'].count()[0]
 
 <p>If you&rsquo;ve understood everything so far the rest of this post won&rsquo;t be much more complicated. However, the notions are very similar and it&rsquo;s easy to forget which is which.</p>
 
-<p>Precision (a.k.a. positive predicted value), is a measure of what the proportion of patients thought by the classifier to have the disease actually had the disease. In terms of probabilities it&rsquo;s the following : &ldquo;the probability that a patient diagnosed as sick by the classifier is sick&rdquo;.</p>
+<p>Precision (a.k.a. positive predicted value), is a measure of the proportion of patients thought by the classifier to have the disease that actually had the disease. In terms of probabilities it&rsquo;s the following : &ldquo;<strong>the probability that a patient diagnosed as sick by the classifier is sick</strong>&rdquo;.</p>
 
 <p>$$\begin{align}
 precision &amp;= \frac{True\ Positives}{True\ Positives + False\ Positive} \nonumber \\<br />
@@ -440,7 +441,8 @@ precision &amp;= \frac{True\ Positives}{True\ Positives + False\ Positive} \nonu
 
 <h3 id="specificity">Specificity</h3>
 
-<p>Another quite useful measure is specificity. It measures how well the classifier detects a patient without the condition. It the opposite of recall : recall and specificity measures the same thing, but recall for the positives and specificity for the negatives. Accordingly, the formula is very similar to that of recall : just switch the words positive and negative.</p>
+<p>Another quite useful measure is specificity. It measures how well the classifier detects a patient without the condition. It the opposite of recall : recall and specificity measures the same thing, but recall for the positives and specificity for the negatives. In terms of probabilities : &ldquo;<strong>the probability that a healthy patient is diagnosed as such by the classifier</strong>&rdquo;.
+Accordingly, the formula is very similar to that of recall : just switch the words positive and negative.</p>
 
 <p>$$\begin{align}
 recall &amp;= \frac{True\ Negatives}{True\ Negatives + False\ Positives} \nonumber \\<br />
@@ -455,11 +457,11 @@ recall &amp;= \frac{True\ Negatives}{True\ Negatives + False\ Positives} \nonumb
 
 <h3 id="huh">Huh.</h3>
 
-<p>Few, that&rsquo;s quite a mouthful. If you weren&rsquo;t already familiar with those concepts before it&rsquo;s probably all mangled up in your head right now. Don&rsquo;t worry about it, it&rsquo;s perfectly normal. You&rsquo;ll get used to it with practice, and you&rsquo;ll probably have to come back to this page or Wikipedia many times. I encourage you to play with these notions yourself. For example if you&rsquo;ve built a classifier, even if you don&rsquo;t need to compute precision or recall or specificity, do it in order to cement the knowledge. And it&rsquo;s likely you&rsquo;ll gain some valuable insight in the process !</p>
+<p>Few, that&rsquo;s quite a mouthful. If you weren&rsquo;t already familiar with those concepts before it&rsquo;s probably all mangled up in your head right now. Don&rsquo;t worry about it, it&rsquo;s perfectly normal. You&rsquo;ll get used to it with practice, and you&rsquo;ll probably have to come back to this page or Wikipedia many times. I encourage you to play with these notions yourself. For example if you&rsquo;ve built a classifier, even if you don&rsquo;t need to compute precision or recall or specificity, do it in order to cement the knowledge. And it&rsquo;s likely you&rsquo;ll gain some valuable insight in the process!</p>
 
 <h2 id="derived-measure">Derived measure</h2>
 
-<p>The different metrics mentioned here are useful in themselves, but there&rsquo;s other measures that build on the notion of precision, recall, and more generally the four confusion metrics. One of them is the $F_\beta$ score.</p>
+<p>The different metrics mentioned here are useful in themselves, but there&rsquo;s also other measures that build on the notion of precision, recall, and more generally the four confusion metrics. One of them is the $F_\beta$ score.</p>
 
 <h3 id="f-beta-score">$F_\beta$ score</h3>
 
@@ -471,39 +473,42 @@ F_1 &amp;= \bigg( \frac{recall^{-1} + precision^{-1}}{2} \nonumber  \bigg)^{-1} 
 &amp;= 2\cdot \frac{precision \cdot recall}{precision + recall} \nonumber
 \end{align}$$</p>
 
-<p>As you can see, the $F_1$ score is the weighted average of Precision and Recall. More precisely, it is the harmonic mean of precision and recall. It conveys the balance between precision and recall. It&rsquo;s very useful to look at the $F_1$ score when you&rsquo;re trying to balance the precision/recall tradeoff.</p>
+<p>As you can see, the $F_1$ score is the weighted average of Precision and Recall. More precisely, it is the harmonic mean of precision and recall. It&rsquo;s very useful to look at the $F_1$ score when you&rsquo;re trying to balance the precision/recall tradeoff.</p>
 
-<p>Why is the harmonic mean used instead of the classic arithmetic mean ? To understand, let&rsquo;s look at a classifier with a precision of 1 and a recall of 0.2 That classifier is quite poor : it detects only 20% of the sick patients. The arithmetic mean of precision and recall would be 0.6 in that case. The harmonic mean would be :</p>
+<div class="notices tip" >
+  <p>Why is the harmonic mean used instead of the classic arithmetic mean? To understand, let&rsquo;s look at a classifier with a precision of 1 and a recall of 0.2. That classifier is quite poor : it detects only 20% of the sick patients. The arithmetic mean of precision and recall would be 0.6 in that case. The harmonic mean would be :
+$$ \frac{2 \cdot 1 \cdot \frac{2}{10}}{1 + \frac{2}{10}} = \frac{4}{12} = \frac{1}{3} $$
+Indeed, 0.333&hellip; seems like a better score than 0.6.</p>
 
-<p>$$ \frac{2 \cdot 1 \cdot \frac{2}{10}}{1 + \frac{2}{10}} = \frac{4}{12} = \frac{1}{3} $$</p>
-
-<p>Indeed, 0.333&hellip; seems like a better score than 0.6 in this case.</p>
+</div>
 
 <p>Here&rsquo;s the relevant python code.</p>
 
 <pre><code class="language-python">F1 = 2 * precision * recall / (precision + recall)
 </code></pre>
 
-<p>However, you can be in a case when you value more precision or recall. In that case, you can use the $F_\beta$ score which is the same as the $F_1$ score but use the parameter $\beta$ to balance the importance of precision and recall.</p>
+<p>However, you can be in a case when you value more the precision, or more the recall. In that case, you can use the $F_\beta$ score which is the same as the $F_1$ score but use the parameter $\beta$ to balance the importance of precision and recall.</p>
 
 <p>$$ F_\beta = \frac{(\beta^2 + 1) \cdot precision \cdot recall}{\beta^2 \cdot precision + recall} \quad \text{with} \quad 0 &lt; \beta &lt; +\infty$$</p>
 
-<p>When $\beta = 1$, the $F_\beta$ score is equal to $F_1$. If $\beta &gt; 1$, the score puts more importance on recall, and if $\beta &lt; 1$, the score puts more importance on precision.</p>
+<p>When $\beta = 1$, the $F_\beta$ score is equal to $F_1$. If $\beta &gt; 1$, the score puts more importance on recall, and if $\beta &lt; 1$, the score puts more importance on precision.
+<div class="notices note" >
+  <p>How is $\beta$ defined ? The exact definition is the following :
+$$\beta = \frac{precision}{recall} \quad \text{where} \quad \frac{\partial F_ \beta}{\partial precision} = \frac{\partial F_ \beta}{\partial recall} $$
+What you need to understand from this definition is that $\beta$ is the ratio between precision and recall. The second bit shouldn&rsquo;t really concern you as you are the one manually setting $\beta$ in most cases.</p>
 
-<p>How is $\beta$ defined ? The exact definition is the following :</p>
+</div></p>
 
-<p>$$\beta = \frac{precision}{recall} \quad \text{where} \quad \frac{\partial F_ \beta}{\partial precision} = \frac{\partial F_ \beta}{\partial recall} $$</p>
+<p><div class="notices tip" >
+  <p>You might ask why is there a $\beta^2$ in the formula instead of a simple $\beta$. That comes from how the $F_ \beta$ score was built by Van Rijsbergen. At the beginning $F_ \beta$ was defined via another measure called effectiveness as $E = 1 - F_\beta$. $\beta$ was set to replace the $\alpha$ parameter in the definition of $E$, and if you do the calculation you end up with $\alpha = \frac{1}{\beta^2 + 1}$. If you&rsquo;re interested in the details, <a href="https://www.cs.odu.edu/~mukka/cs795sum10dm/Lecturenotes/Day3/F-measure-YS-26Oct07.pdf">see this paper that explains it well</a>.</p>
 
-<p>What you need to understand from this definition is that $\beta$ is the ratio between precision and recall. The second bit shouldn&rsquo;t really concern you as you are the one manually setting $\beta$ in most cases.</p>
-
-<p>You might ask why is there a $\beta^2$ in the formula instead of a simple $\beta$. That comes from how the $F_ \beta$ score was built by Van Rijsbergen. At the beginning $F_ \beta$ was defined via another measure called effectiveness as $E = 1 - F_\beta$. $\beta$ was set to replace the $\alpha$ parameter in the definition of $E$, and if you do the calculation you end up with $\alpha = \frac{1}{\beta^2 + 1}$. If you&rsquo;re interested in the details, <a href="https://www.cs.odu.edu/~mukka/cs795sum10dm/Lecturenotes/Day3/F-measure-YS-26Oct07.pdf">see this paper that explains it well</a>.</p>
-
-<p>Finally, here&rsquo;s the code for computing $F_\beta$.</p>
+</div>
+Finally, here&rsquo;s the code for computing $F_\beta$.</p>
 
 <pre><code class="language-python">Fbeta = (beta**2 + 1) * precision * recall / (beta**2 * precision + recall)
 </code></pre>
 
-<p>*I hope this article helped you to understand the confusion metrics. Feel free to reach me out on Twitter if you have any question!*å</p>
+<p><em>I hope this article helped you to understand the confusion metrics. Feel free to reach me out on Twitter if you have any question!</em></p>
 
   </div>
   
