@@ -6,7 +6,7 @@
     <description>Recent content in Python on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pouannes.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Finally understanding decorators in Python</title>
       <link>https://pouannes.github.io/blog/decorators/</link>
-      <pubDate>Sat, 16 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://pouannes.github.io/blog/decorators/</guid>
       <description>Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they work, even after reading a bunch of stuff about them. Until I came across the talk &amp;lsquo;So you want to be a Python expert&amp;rsquo; by James Powell in which he explains four key features of Python, including decorators.</description>
