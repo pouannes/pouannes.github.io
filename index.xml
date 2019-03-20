@@ -17,7 +17,7 @@
       <pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://pouannes.github.io/blog/decorators/</guid>
-      <description>Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they work, even after reading a bunch of stuff about them. Until I came across the talk &amp;lsquo;So you want to be a Python expert&amp;rsquo; by James Powell in which he explains four key features of Python, including decorators.</description>
+      <description>Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they worked, even after reading a bunch of stuff about them. Until I came across the talk &amp;lsquo;So you want to be a Python expert&amp;rsquo; by James Powell in which he explains four key features of Python, including decorators.</description>
     </item>
     
     <item>

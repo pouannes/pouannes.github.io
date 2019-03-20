@@ -26,10 +26,10 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Finally understanding decorators in Python"/>
-<meta name="twitter:description" content="Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they work, even after reading a bunch of stuff about them. Until I came across the talk &lsquo;So you want to be a Python expert&rsquo; by James Powell in which he explains four key features of Python, including decorators."/>
+<meta name="twitter:description" content="Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they worked, even after reading a bunch of stuff about them. Until I came across the talk &lsquo;So you want to be a Python expert&rsquo; by James Powell in which he explains four key features of Python, including decorators."/>
 
 <meta property="og:title" content="Finally understanding decorators in Python" />
-<meta property="og:description" content="Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they work, even after reading a bunch of stuff about them. Until I came across the talk &lsquo;So you want to be a Python expert&rsquo; by James Powell in which he explains four key features of Python, including decorators." />
+<meta property="og:description" content="Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they worked, even after reading a bunch of stuff about them. Until I came across the talk &lsquo;So you want to be a Python expert&rsquo; by James Powell in which he explains four key features of Python, including decorators." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://pouannes.github.io/blog/decorators/" /><meta property="article:published_time" content="2019-02-17T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2019-02-17T00:00:00&#43;00:00"/><meta property="og:site_name" content="Title" />
@@ -186,7 +186,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
     
     
         <br/>
-        <i class="fas fa-clock"></i> 7 min read
+        <i class="fas fa-clock"></i> 8 min read
     
 </div>
 
@@ -207,21 +207,21 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
   <div class="post">
     
 
-<p>Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they work, even after reading a bunch of stuff about them. Until I came across the <a href="https://www.youtube.com/watch?v=cKPlPJyQrt4" target="_blank">talk &lsquo;So you want to be a Python expert&rsquo; by James Powell</a> in which he explains four key features of Python, including decorators. This article aims to put in writing the essence of the part of his talk about decorators.</p>
+<p>Python is a very beginner-friendly language. However, it also has some more advanced features that can be hard to grasp. For me at least, decorators were one of them. I was seeing them here and there but never fully understood what they did and how they worked, even after reading a bunch of stuff about them. Until I came across the <a href="https://www.youtube.com/watch?v=cKPlPJyQrt4" target="_blank">talk &lsquo;So you want to be a Python expert&rsquo; by James Powell</a> in which he explains four key features of Python, including decorators. This article aims to put in writing the essence of the part of his talk about decorators.</p>
 
-<p>Maybe you&rsquo;ve not been in the python ecosystem long enough to know what a decorator is, or you&rsquo;ve encountered it but you didn&rsquo;t know what it was. A decorator is the little at-something on top of a function definition.</p>
+<p>Maybe you&rsquo;ve not been in the Python ecosystem long enough to know what a decorator is, or you&rsquo;ve encountered it but you didn&rsquo;t know what it was. A decorator is the little at-something on top of a function definition, like so:</p>
 
 <pre><code class="language-python">@dec
 def func():
   pass
 </code></pre>
 
-<p>The best way to understand decorators is to understand what problem they solve. Bare with me, we&rsquo;ll get to decorators at the end and all will be clear.</p>
+<p>The best way to understand decorators is to understand what problem they solve. Bear with me, we&rsquo;ll get to decorators at the end and all will be clear.</p>
 
 <h3 id="setting-up-the-problem">Setting up the problem</h3>
 
 <p>We are going to play with a mock example in order to understand the purpose of decorators.
-Let&rsquo;s say you have a simple function that add stuff in a file called <code>dec.py</code>, with a default value for the second parameter of 10.</p>
+Let&rsquo;s say you have a simple function that add stuff in a file called <code>dec.py</code>, with a default value for the second parameter of 10:</p>
 
 <pre><code class="language-python"># dec.py
 
@@ -229,7 +229,7 @@ def add(x, y=10):
   return x + y
 </code></pre>
 
-<p>Let&rsquo;s take a closer look at the <code>add</code> function itself.</p>
+<p>Let&rsquo;s take a closer look at the <code>add</code> function itself:</p>
 
 <pre><code class="language-python">&gt;&gt;&gt; add(10, 20)
 30
@@ -245,7 +245,7 @@ def add(x, y=10):
 ('x', 'y')
 </code></pre>
 
-<p>No need to understand what all of those are, the main thing to remember is that every function in python is a live thing that you can play with. You can also look at the source code for example, with the inspect module :</p>
+<p>No need to understand what all of those are, the main thing to remember is that every function in python is a live thing that you can play with. You can also look at the source code for example, with the inspect module:</p>
 
 <pre><code class="language-python">&gt;&gt;&gt; from inspect import getsource
 &gt;&gt;&gt; print(getsource(add))
@@ -253,7 +253,7 @@ def add(x, y=10):
   return x + y
 </code></pre>
 
-<p>Now let&rsquo;s say you use the <code>add</code> function in some way, for example you test it with a bunch of operations :</p>
+<p>Now let&rsquo;s say you use the <code>add</code> function in some way, for example you test it with a bunch of operations:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -266,14 +266,14 @@ print('add(20, 30)',     add(20, 30))
 print('add(&quot;a&quot;, &quot;b&quot;)',   add(&quot;a&quot;, &quot;b&quot;))
 </code></pre>
 
-<p>Output :</p>
+<p>Output:</p>
 
 <pre><code class="language-python">add(10) 20
 add(20, 30) 50
 add(&quot;a&quot;, &quot;b&quot;) ab
 </code></pre>
 
-<p>And let&rsquo;s say you want to time each of these operations, using the <code>time</code> module for example :</p>
+<p>And let&rsquo;s say you want to time each of these operations, using the <code>time</code> module for example:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -296,7 +296,7 @@ after = time()
 print('time taken: ', after - before)
 </code></pre>
 
-<p>Output :</p>
+<p>Output:</p>
 
 <pre><code class="language-python">add(10) 20
 time taken:  6.699562072753906e-05
@@ -308,7 +308,7 @@ time taken:  6.9141387939453125e-06
 
 <p>Now your programmer senses are itching because we are all taught to hate copy-paste, and for good reasons. It&rsquo;s not very readable, and if you want to change something you have to change it everywhere. There must be a better way.</p>
 
-<p>We could do something like this instead, to capture the time directly in the <code>add</code> function :</p>
+<p>We could do something like this instead, to capture the time directly in the <code>add</code> function:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -325,7 +325,7 @@ print('add(20, 30)',     add(20, 30))
 print('add(&quot;a&quot;, &quot;b&quot;)',   add(&quot;a&quot;, &quot;b&quot;))
 </code></pre>
 
-<p>That would be definitely better than before. However if you have another function, this doesn&rsquo;t feel right anymore. And you could have many more functions.</p>
+<p>That would be definitely better than before. However if you have another function, this doesn&rsquo;t feel right anymore. And you could have many more functions:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -347,7 +347,7 @@ print('sub(10)',         sub(10))
 print('sub(20, 30)',     sub(20, 30))
 </code></pre>
 
-<p>Remember, both <code>add</code> and <code>sum</code> are function. Let&rsquo;s take advantage of this and right a <code>timer</code> function. <code>timer</code> takes a function, times it while computing the output, and return the outputs.</p>
+<p>Remember, both <code>add</code> and <code>sub</code> are functions. Let&rsquo;s take advantage of this and write a <code>timer</code> function. <code>timer</code> takes a function, times it while computing the output, and returns the outputs:</p>
 
 <pre><code class="language-python">def timer(func, x, y=10):
   before = time()
@@ -357,14 +357,14 @@ print('sub(20, 30)',     sub(20, 30))
   return rv
 </code></pre>
 
-<p>That&rsquo;s good, but we&rsquo;ll have to have everything with this <code>timer</code> function, like so :</p>
+<p>That&rsquo;s good, but we&rsquo;ll have to wrap everything with this <code>timer</code> function, like so:</p>
 
 <pre><code class="language-python">print('add(10)',         timer(add,10)))
 </code></pre>
 
-<p>And the default value is now is <code>timer</code>? Not pretty. How to do better ?</p>
+<p>And the default value is now <code>10</code>? Not pretty. How to do better?</p>
 
-<p>Here&rsquo;s an idea : let&rsquo;s create a new <code>timer</code> function that wraps around other functions, and return the wrapped function.</p>
+<p>Here&rsquo;s an idea: let&rsquo;s create a new <code>timer</code> function that wraps around other functions, and returns the wrapped function:</p>
 
 <pre><code class="language-python">def timer(func):
   def f(x, y=10):
@@ -376,12 +376,12 @@ print('sub(20, 30)',     sub(20, 30))
   return f
 </code></pre>
 
-<p>Now you just need to wrap <code>add</code> and <code>sub</code> with <code>timer</code>, with</p>
+<p>Now you just need to wrap <code>add</code> and <code>sub</code> with <code>timer</code>, with:</p>
 
 <pre><code class="language-python">add = timer(add)
 </code></pre>
 
-<p>and it should work! Here&rsquo;s the full code.</p>
+<p>and it should work! Here&rsquo;s the full code:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -410,7 +410,7 @@ print('sub(10)',         sub(10))
 print('sub(20, 30)',     sub(20, 30))
 </code></pre>
 
-<p>Output :</p>
+<p>Output:</p>
 
 <pre><code class="language-python">time taken:  0.0
 add(10) 20
@@ -424,18 +424,20 @@ time taken:  9.5367431640625e-07
 sub(20, 30) -10
 </code></pre>
 
-<p>So what did we do ? We had a function (like <code>add</code>), and we wrapped it with a behavior (for example time it). We created a new function (<code>timer</code>), that takes the original function and wraps it with a bit of new behavior and returns the new function. Pretty useful eh ?</p>
+<p>So what did we do? We had a function (like <code>add</code>), and we wrapped it with a behavior (for example time it). We created a new function (<code>timer</code>), that takes the original function and wraps it with a bit of new behavior and returns the new function. Pretty useful eh?</p>
+
+<p>Of course, there&rsquo;s still the issue of the default values. We&rsquo;ll tackle it a bit later.</p>
 
 <h2 id="decorators">Decorators!</h2>
 
-<p>That pattern of wrapping functions with new, common behavior is exactly what decorators are. Instead of writing</p>
+<p>That pattern of wrapping functions with new, common behavior is exactly what decorators are. Instead of writing:</p>
 
 <pre><code class="language-python">def add(x, y=10):
   return x + y
 add = timer(add)
 </code></pre>
 
-<p>You write</p>
+<p>You write:</p>
 
 <pre><code class="language-python">@timer
 def add(x, y=10):
@@ -444,7 +446,7 @@ def add(x, y=10):
 
 <p>But it&rsquo;s <strong><em>exactly the same thing.</em></strong> That&rsquo;s what a decorator is in Python. It&rsquo;s simply a syntax for saying <code>add = timer(add)</code>, but instead of putting it at the end of the function you put it at the top with the simpler syntax <code>@timer</code>.</p>
 
-<p>Here&rsquo;s what the example would look like now.</p>
+<p>Here&rsquo;s what the example would look like now:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -474,7 +476,7 @@ print('sub(20, 30)',     sub(20, 30))
 
 <h2 id="args-and-kwargs">args and kwargs</h2>
 
-<p>Now there&rsquo;s still one small detail left that isn&rsquo;t quite right. In the <code>timer</code> function, we hard-coded the parameters <code>x</code> and <code>y</code>, and even the default <code>y-10</code>. There&rsquo;s a way to pass the arguments and the key-word arguments for the function, with <code>*args</code> and <code>**kwargs</code>, like this :</p>
+<p>Now there&rsquo;s still one small detail left that isn&rsquo;t quite right. In the <code>timer</code> function, we hard-coded the parameters <code>x</code> and <code>y</code>, and even the default <code>y=10</code>. There&rsquo;s a way to pass the arguments and the key-word arguments for the function, with <code>*args</code> and <code>**kwargs</code>. To be clear, the arguments are the standard arguments of a function (in this case <code>x</code> is an argument), while the key-word arguments are the argument that already have a default value (like <code>y=10</code> here). Here&rsquo;s the code:</p>
 
 <pre><code class="language-python"># dec.py
 from time import time
@@ -502,13 +504,13 @@ print('sub(10)',         sub(10))
 print('sub(20, 30)',     sub(20, 30))
 </code></pre>
 
-<p>Now the <code>timer</code> function works with any function, with any parameters and any set of defaults, because it just forwards the parameters to the function.</p>
+<p>Now the <code>timer</code> function works with any function, with any parameter and any set of defaults, because it just forwards the parameters to the function.</p>
 
 <h2 id="higher-order-decorators">Higher order decorators</h2>
 
-<p>Some of you may already wonder at this point : wait&hellip; If we can wrap one function inside a function to add useful behavior, could we go one step further? Could we wrap a function inside a function, inside another function?</p>
+<p>Some of you may already wonder at this point: wait&hellip; If we can wrap one function inside a function to add useful behavior, could we go one step further? Could we wrap a function inside a function, inside another function?</p>
 
-<p>Yes! In fact you can go as deep as you want (although usually you won&rsquo;t need to go deeper than this). For example, let&rsquo;s say you want to write a decorator to execute function <code>n</code> number of times. Here&rsquo;s what it would look like :</p>
+<p>Yes! In fact you can go as deep as you want (although usually you won&rsquo;t need to go any deeper than this). For example, let&rsquo;s say you want to write a decorator to execute a function <code>n</code> times. Here&rsquo;s what it would look like:</p>
 
 <pre><code class="language-python">def ntimes(n):
   def inner(f):
@@ -520,7 +522,7 @@ print('sub(20, 30)',     sub(20, 30))
   return inner
 </code></pre>
 
-<p>You can then wrap functions with this, for example with the earlier <code>add</code> function (although this won&rsquo;t do much&hellip;) :</p>
+<p>You can then wrap functions with this, for example with the earlier <code>add</code> function (although this won&rsquo;t do much&hellip;):</p>
 
 <pre><code class="language-python">@ntimes(3)
 def add(x, y):
@@ -529,7 +531,7 @@ def add(x, y):
 
 <h2 id="recap">Recap</h2>
 
-<p>So let recap what a decorator is :</p>
+<p>So let recap what a decorator is:</p>
 
 <ul>
 <li>It&rsquo;s a function that wraps another function;</li>
@@ -539,6 +541,8 @@ def add(x, y):
 </ul>
 
 <p>I hope this has helped you to understand decorators in Python!</p>
+
+<p>Please feel free to contact me on Twitter if you have any question.</p>
 
   </div>
   
