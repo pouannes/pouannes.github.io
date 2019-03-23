@@ -522,12 +522,15 @@ print('sub(20, 30)',     sub(20, 30))
   return inner
 </code></pre>
 
-<p>You can then wrap functions with this, for example with the earlier <code>add</code> function (although this won&rsquo;t do much&hellip;):</p>
+<p>You can then wrap functions with this, for example with the earlier <code>add</code> function:</p>
 
 <pre><code class="language-python">@ntimes(3)
 def add(x, y):
-  return x + Y
+  print(x + y)
+  return x + y
 </code></pre>
+
+<p>A <code>print</code> statement was added to show that the code indeed execute 3 times, otherwise the <code>@ntimes</code> wouldn&rsquo;t do a lot.</p>
 
 <h2 id="recap">Recap</h2>
 
