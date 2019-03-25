@@ -246,7 +246,7 @@ Built with <a href="https://gohugo.io">Hugo</a> ❤️ <a href="https://github.c
 
 <p align="center"><i> Gradient values with standard initialization, <a href="http://proceedings.mlr.press/v9/glorot10a.html" target="_blank"> source: Xavier paper </a> </i></p>
 
-<p>As you can see, in this case the activation values tend to explode, and the gradients are also exploding (yes, exploding, because remember they are computed backwards: from layer 5 to layer 1). And that&rsquo;s only with 5 hidden layers! It&rsquo;s clear we need a better way of initializing the network, that doesn&rsquo;t lead to exploding or vanishing activations and gradients. That&rsquo;s (one of) the contribution of Xavier initialization, that was later refined into Kaiming initialization.</p>
+<p>As you can see, in this case the activation values tend to vanish, and the gradients are also vanishing (yes, vanishing, because remember they are computed backwards: from layer 5 to layer 1). And that&rsquo;s only with 5 hidden layers! It&rsquo;s clear we need a better way of initializing the network, that doesn&rsquo;t lead to exploding or vanishing activations and gradients. That&rsquo;s (one of) the contribution of Xavier initialization, that was later refined into Kaiming initialization.</p>
 
 <h2 id="xavier-and-kaiming-initialization">Xavier and Kaiming initialization</h2>
 
