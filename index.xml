@@ -6,10 +6,20 @@
     <description>Recent content on Pierre Ouannes</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 22 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://pouannes.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understanding callbacks in fastai</title>
+      <link>https://pouannes.github.io/blog/callbacks-fastai/</link>
+      <pubDate>Fri, 29 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://pouannes.github.io/blog/callbacks-fastai/</guid>
+      <description>fastai is a great library for Deep Learning with many powerful features, which make it very easy to quickly build state of the art models, but also to tweak them as you wish. One of the best features of fastai is its callbacks system that lets you customize simply pretty much everything.
+However, it can take getting used to and that&amp;rsquo;s the purpose of this post: presenting the callback system in fastai, explaining how it works and how to use it and finally showing you a few examples.</description>
+    </item>
     
     <item>
       <title>How to initialize deep neural networks? Xavier and Kaiming initialization</title>
